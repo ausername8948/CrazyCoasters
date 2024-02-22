@@ -162,6 +162,10 @@ public class AmusementParkTest {
         assertEquals(park.getMoney(), 9999706);
         assertEquals(park.getCustomerHungry(), 99);
         assertEquals(park.getWashroomNeed(),99);
+        park.setCustomerHungry(50);
+        park.setWashroomNeed(100);
+        park.update();
+        assertEquals(park.getMoney(), 9999707);
     }
 
     @Test
@@ -200,6 +204,12 @@ public class AmusementParkTest {
 
     @Test
     void toStringTest() {
+        assertEquals(park.toString(),
+                "Current Statistics for Adi's Amusement Park: \n" +
+                        "Money: $10000000\n" +
+                        "Customer Hunger: 0\n" +
+                        "Customer Bathroom Need: 0");
+
         park.addRide(rideOne);
         park.addBathroom(bathOne);
         park.addFood(foodOne);
@@ -216,6 +226,12 @@ public class AmusementParkTest {
 
     @Test
     void rideToStringTest() throws Game.NoSuchBuildingException {
+        try {
+            park.ridesToString();
+        } catch (Game.NoSuchBuildingException e) {
+            assertEquals(e.getMessage(), null);
+        }
+
         park.addRide(rideOne);
         park.addRide(rideTwo);
 
@@ -226,6 +242,12 @@ public class AmusementParkTest {
 
     @Test
     void bathroomsToStringTest() throws Game.NoSuchBuildingException {
+        try {
+            park.bathroomsToString();
+        } catch (Game.NoSuchBuildingException e) {
+            assertEquals(e.getMessage(), null);
+        }
+
         park.addBathroom(bathOne);
         park.addBathroom(bathTwo);
 
@@ -236,6 +258,12 @@ public class AmusementParkTest {
 
     @Test
     void foodToStringTest() throws Game.NoSuchBuildingException {
+        try {
+            park.foodToString();
+        } catch (Game.NoSuchBuildingException e) {
+            assertEquals(e.getMessage(), null);
+        }
+
         park.addFood(foodOne);
         park.addFood(foodTwo);
 
