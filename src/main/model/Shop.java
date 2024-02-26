@@ -67,6 +67,8 @@ public class Shop {
             case "food":
                 output = arrayListToString(foods);
                 break;
+            default:
+                break;
         }
 
         return output;

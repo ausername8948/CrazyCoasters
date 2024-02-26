@@ -42,6 +42,7 @@ public class ShopTest {
                         "[3] Food3 - Level 0 ($10000) [$100 per second]\n" +
                         "[4] Food4 - Level 0 ($100000) [$1000 per second]\n" +
                         "[5] Food5 - Level 0 ($1000000) [$10000 per second]\n");
+        assertEquals(shop.toString("yourmom"), ""); //test case taken from TA
     }
 
     @Test
