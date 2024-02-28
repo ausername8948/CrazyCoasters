@@ -29,7 +29,7 @@ to be able to customize and code an idle game.
 - As a user, I want to view my progress by having a "statistics" screen,
 **viewing my money and buildings**.
 - As a user, I want to be able to **sell buildings**. 
-- As a user, I want to be able to **acquire achievments** for progress made in the game.
+- As a user, I want to be able to **acquire achievements** for progress made in the game.
 - As a user, I want to be able to save the current state of my game to file.
 - As a user, I want to be able to load the saved state of my game from file.
 
