@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
+//represents an instance of the user playing the game, with methods for various menus (various states of Game)
 public class Game {
     private final Scanner scanner;
     private ArrayList<AmusementPark> parks;
