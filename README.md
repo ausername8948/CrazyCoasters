@@ -1,4 +1,4 @@
-# **Amusement Park Simulator**
+# **Crazy Coasters!**
 
 ### *Create the amusement park of your dreams!*
 
