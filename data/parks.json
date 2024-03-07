@@ -1,13 +1,13 @@
 [
     {
         "hungry": -12,
-        "money": 571932,
+        "money": 970470,
         "buildings": [
             {
                 "income": 0,
                 "washroomCap": 3,
                 "cost": 100,
-                "level": 3,
+                "level": 1,
                 "name": "Bath1",
                 "category": "bathroom",
                 "upgradeCost": 250

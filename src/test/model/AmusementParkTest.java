@@ -138,6 +138,7 @@ public class AmusementParkTest {
     @Test
     void testUpdate() {
         park.addRide(rideOne);
+
         park.update();
 
         assertEquals(park.getMoney(), 9999901);
@@ -162,11 +163,15 @@ public class AmusementParkTest {
         assertEquals(park.getMoney(), 9999706);
         assertEquals(park.getCustomerHungry(), 99);
         assertEquals(park.getWashroomNeed(),99);
-        park.setCustomerHungry(50);
-        park.setWashroomNeed(100);
+        park.setCustomerHungry(-3);
+        park.setWashroomNeed(-4);
         park.update();
+        assertEquals(1, park.getCustomerHungry());
+        assertEquals(0, park.getWashroomNeed());
         assertEquals(park.getMoney(), 9999707);
     }
+
+
 
     @Test
     void testWashroomUsage() {
