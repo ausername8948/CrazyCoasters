@@ -163,12 +163,16 @@ public class AmusementParkTest {
         assertEquals(park.getMoney(), 9999706);
         assertEquals(park.getCustomerHungry(), 99);
         assertEquals(park.getWashroomNeed(),99);
-        park.setCustomerHungry(-3);
-        park.setWashroomNeed(-4);
+        park.setCustomerHungry(50);
+        park.setWashroomNeed((100));
         park.update();
-        assertEquals(1, park.getCustomerHungry());
-        assertEquals(0, park.getWashroomNeed());
         assertEquals(park.getMoney(), 9999707);
+        park.setCustomerHungry(-10);
+        park.setWashroomNeed(-10);
+        park.update();
+        assertEquals(0, park.getCustomerHungry());
+        assertEquals(0, park.getWashroomNeed());
+        assertEquals(park.getMoney(), 9999709);
     }
 
 
