@@ -78,18 +78,12 @@ public class JsonReader {
     // EFFECTS: parses building from JSON object and adds it to AmusementPark
     private void addBuilding(AmusementPark park, JSONObject jsonObject) {
         String category = jsonObject.getString("category");
-        switch (category) {
-            case "bathroom":
-                addBathroom(park, jsonObject);
-                break;
-            case "food":
-                addFood(park, jsonObject);
-                break;
-            case "ride":
-                addRide(park, jsonObject);
-                break;
-            default:
-                break;
+        if (category.equals("bathroom")) {
+            addBathroom(park, jsonObject);
+        } else if (category.equals("food")) {
+            addFood(park, jsonObject);
+        } else if (category.equals("ride")) {
+            addRide(park, jsonObject);
         }
     }
 
