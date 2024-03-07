@@ -1,6 +1,8 @@
 package model;
 
 
+import org.json.JSONObject;
+
 //represents a bathroom at an amusement park, with a "level" and "washroomCap" (short for washroom capacity)
 public class Bathroom extends Building {
     private int washroomCap;
@@ -25,6 +27,15 @@ public class Bathroom extends Building {
         return washroomCap;
     }
 
+    public void setWashroomCap(int washroomCap) {
+        this.washroomCap = washroomCap;
+    }
 
-
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = super.toJson();
+        json.put("washroomCap", washroomCap);
+        json.put("category", "bathroom");
+        return json;
+    }
 }

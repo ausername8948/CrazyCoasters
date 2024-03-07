@@ -1,8 +1,11 @@
 package model;
 
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // represents a building can be one of: Ride, FoodStall, Bathroom
-public abstract class Building {
+public abstract class Building implements Writable {
     protected int level;
     protected int upgradeCost;
     protected int cost;
@@ -69,6 +72,25 @@ public abstract class Building {
     //Setter(s)
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public void setUpgradeCost(int upgradeCost) {
+        this.upgradeCost = upgradeCost;
+    }
+
+    public void setIncome(int income) {
+        this.income = income;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("level", level);
+        json.put("upgradeCost", upgradeCost);
+        json.put("cost", cost);
+        json.put("income", income);
+        json.put("name", name);
+        return json;
     }
 
 }

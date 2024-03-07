@@ -1,12 +1,15 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
 import ui.Game;
 
 import java.util.ArrayList;
 
 //represents an amusement park with various buildings, users can add buildings and view statistics
 //customerHungry represents the need for FoodStalls, washroomNeed represents the need for bathrooms
-public class AmusementPark {
+public class AmusementPark implements Writable {
 
 
     private String parkName;
@@ -103,6 +106,22 @@ public class AmusementPark {
         int foodFed = totalFoodFed();
         int customerRelief = washroomUsage();
         boolean paid = false;
+        handleBathroomAndHunger(paid, income);
+        if (washroomNeed > 0) {
+            washroomNeed -= customerRelief;
+        }
+
+        if (customerHungry > 0) {
+            customerHungry -= foodFed;
+        }
+
+    }
+
+    //!!! needs tests
+    //MODIFIES: this
+    //EFFECTS: handles boundary cases for customerHungry and washroomNeed
+    public void handleBathroomAndHunger(boolean paid, int income) {
+
         if (customerHungry >= 100) {
             customerHungry = 100;
             money += income / 2;
@@ -122,9 +141,13 @@ public class AmusementPark {
             washroomNeed += (int) (Math.log10(money) - 1);
             customerHungry += (int) (Math.log10(money) - 1);
         }
-        washroomNeed -= customerRelief;
-        customerHungry -= foodFed;
 
+        if (washroomNeed <= 0) {
+            washroomNeed = 0;
+        }
+        if (customerHungry <= 0) {
+            customerHungry = 0;
+        }
     }
 
     //EFFECTS: calculates "washroom usage" to be subtracted from washroomNeed by looping through bathrooms list
@@ -297,6 +320,37 @@ public class AmusementPark {
         return this.bathrooms;
     }
 
+
+    //EFFECTS: Converts amusement park fields into a JSON object
+    @Override
+    public JSONObject toJson() {
+        JSONObject jsonString = new JSONObject();
+        jsonString.put("name", parkName);
+        jsonString.put("money", money);
+        jsonString.put("hungry", customerHungry);
+        jsonString.put("bathroom", washroomNeed);
+        jsonString.put("buildings", buildingsToJson());
+        return jsonString;
+    }
+
+    //EFFECTS: returns buildings in amusement park as a JSONArray
+    private JSONArray buildingsToJson() {
+        JSONArray buildingsArray = new JSONArray();
+
+        for (Bathroom b : bathrooms) {
+            buildingsArray.put(b.toJson());
+        }
+
+        for (FoodStall f : foods) {
+            buildingsArray.put(f.toJson());
+        }
+
+        for (Ride r : rides) {
+            buildingsArray.put(r.toJson());
+        }
+
+        return buildingsArray;
+    }
 
 
     // yo make a random event log with customer randomly getting mad and stuff lol

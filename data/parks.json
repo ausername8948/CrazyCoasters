@@ -1,0 +1,175 @@
+[
+    {
+        "hungry": -12,
+        "money": 571932,
+        "buildings": [
+            {
+                "income": 0,
+                "washroomCap": 3,
+                "cost": 100,
+                "level": 3,
+                "name": "Bath1",
+                "category": "bathroom",
+                "upgradeCost": 250
+            },
+            {
+                "income": 0,
+                "washroomCap": 1,
+                "cost": 100,
+                "level": 1,
+                "name": "Bath1",
+                "category": "bathroom",
+                "upgradeCost": 150
+            },
+            {
+                "income": 0,
+                "washroomCap": 1,
+                "cost": 100,
+                "level": 1,
+                "name": "Bath1",
+                "category": "bathroom",
+                "upgradeCost": 150
+            },
+            {
+                "income": 0,
+                "washroomCap": 1,
+                "cost": 100,
+                "level": 1,
+                "name": "Bath1",
+                "category": "bathroom",
+                "upgradeCost": 150
+            },
+            {
+                "income": 0,
+                "washroomCap": 1,
+                "cost": 100,
+                "level": 1,
+                "name": "Bath1",
+                "category": "bathroom",
+                "upgradeCost": 150
+            },
+            {
+                "income": 0,
+                "washroomCap": 1,
+                "cost": 100,
+                "level": 1,
+                "name": "Bath1",
+                "category": "bathroom",
+                "upgradeCost": 150
+            },
+            {
+                "income": 0,
+                "washroomCap": 1,
+                "cost": 100,
+                "level": 1,
+                "name": "Bath1",
+                "category": "bathroom",
+                "upgradeCost": 150
+            },
+            {
+                "income": 10,
+                "cost": 1000,
+                "level": 1,
+                "foodFed": 2,
+                "name": "Food2",
+                "category": "food",
+                "upgradeCost": 1500
+            },
+            {
+                "income": 10,
+                "cost": 1000,
+                "level": 1,
+                "foodFed": 2,
+                "name": "Food2",
+                "category": "food",
+                "upgradeCost": 1500
+            },
+            {
+                "income": 100,
+                "cost": 10000,
+                "level": 1,
+                "foodFed": 3,
+                "name": "Food3",
+                "category": "food",
+                "upgradeCost": 15000
+            },
+            {
+                "income": 1000,
+                "cost": 100000,
+                "level": 1,
+                "foodFed": 4,
+                "name": "Food4",
+                "category": "food",
+                "upgradeCost": 150000
+            },
+            {
+                "income": 10000,
+                "cost": 1000000,
+                "level": 1,
+                "foodFed": 5,
+                "name": "Food5",
+                "category": "food",
+                "upgradeCost": 1500000
+            },
+            {
+                "income": 1,
+                "cost": 100,
+                "level": 1,
+                "name": "The Wooden Coaster",
+                "category": "ride",
+                "upgradeCost": 150
+            },
+            {
+                "income": 20,
+                "cost": 1000,
+                "level": 1,
+                "name": "Ride2",
+                "category": "ride",
+                "upgradeCost": 2000
+            },
+            {
+                "income": 1000,
+                "cost": 100000,
+                "level": 1,
+                "name": "Ride4",
+                "category": "ride",
+                "upgradeCost": 150000
+            },
+            {
+                "income": 10000,
+                "cost": 1000000,
+                "level": 1,
+                "name": "Ride5",
+                "category": "ride",
+                "upgradeCost": 1500000
+            }
+        ],
+        "name": "Sam's Amusement Park",
+        "bathroom": -5
+    },
+    {
+        "hungry": 8,
+        "money": 11,
+        "buildings": [
+            {
+                "income": 0,
+                "washroomCap": 1,
+                "cost": 100,
+                "level": 1,
+                "name": "Bath1",
+                "category": "bathroom",
+                "upgradeCost": 150
+            },
+            {
+                "income": 1,
+                "cost": 100,
+                "level": 1,
+                "name": "The Wooden Coaster",
+                "category": "ride",
+                "upgradeCost": 150
+            }
+        ],
+        "name": "bad amusement park",
+        "bathroom": 5
+    }
+]

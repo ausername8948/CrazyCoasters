@@ -1,0 +1,34 @@
+[{
+    "hungry": 0,
+    "money": 999700,
+    "buildings": [
+        {
+            "income": 0,
+            "washroomCap": 1,
+            "cost": 100,
+            "level": 1,
+            "name": "Bath1",
+            "category": "bathroom",
+            "upgradeCost": 150
+        },
+        {
+            "income": 1,
+            "cost": 100,
+            "level": 1,
+            "foodFed": 1,
+            "name": "Food1",
+            "category": "food",
+            "upgradeCost": 150
+        },
+        {
+            "income": 1,
+            "cost": 100,
+            "level": 1,
+            "name": "The Wooden Coaster",
+            "category": "ride",
+            "upgradeCost": 150
+        }
+    ],
+    "name": "MyPark",
+    "bathroom": 0
+}]

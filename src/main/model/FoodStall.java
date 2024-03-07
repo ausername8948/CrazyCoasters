@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 // represents a FoodStall at the amusement park, with "foodFed" representing the amount of people it feeds
 public class FoodStall extends Building {
     private int foodFed;
@@ -15,5 +17,15 @@ public class FoodStall extends Building {
         return foodFed;
     }
 
+    public void setFoodFed(int foodFed) {
+        this.foodFed = foodFed;
+    }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = super.toJson();
+        json.put("foodFed", foodFed);
+        json.put("category", "food");
+        return json;
+    }
 }

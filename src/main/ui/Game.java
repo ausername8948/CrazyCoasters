@@ -1,16 +1,22 @@
 package ui;
 
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.*;
 
 //represents an instance of the user playing the game, with methods for various menus (various states of Game)
 public class Game {
+    private static final String saveFile = "./data/parks.json";
     private final Scanner scanner;
-    private ArrayList<AmusementPark> parks;
+    private List<AmusementPark> parks;
+
+    private JsonReader reader;
+    private JsonWriter writer;
+
 
     private int currentPark;
 
@@ -20,16 +26,30 @@ public class Game {
     public Game() {
         scanner = new Scanner(System.in);
         scanner.useDelimiter("\n");
+
+        reader = new JsonReader(saveFile);
+        writer = new JsonWriter(saveFile);
+
         shop = new Shop();
-        parks = new ArrayList<AmusementPark>();
-        newPark(); // will be gone later when we have the option to load saved parks
+        parks = new ArrayList<>();
+        startGame();
     }
+
+    /*-----------------------------
+    |      PARK MANAGEMENT        |
+     -----------------------------*/
 
     //MODIFIES: this
     //EFFECTS: creates a new amusement park
     public void newPark() {
+        try {
+            parks = reader.read();
+        } catch (IOException e) {
+            // parks is empty
+        }
+
         System.out.println("Please enter the name of your new amusement park: ");
-        String name = scanner.nextLine();
+        String name = scanner.next();
 
         AmusementPark park = new AmusementPark(name);
         parks.add(park);
@@ -44,9 +64,86 @@ public class Game {
         menu();
     }
 
+    public void choosePark() {
+        System.out.println("The following parks have been loaded: ");
+        for (int i = 0; i < parks.size(); i++) {
+            System.out.print("[" + (i + 1) + "] " + parks.get(i).getParkName() + "\n");
+        }
+        String choice = scanner.next();
+        if (choice.matches("[" + 1 + "," + parks.size() + "]")) {
+            System.out.println(parks.get(Integer.valueOf(choice) - 1).getParkName()
+                    + " has been selected!");
+            currentPark = Integer.valueOf(choice) - 1;
+            addTimer();
+            menu();
+        } else {
+            System.out.println("Invalid option!");
+            System.out.println();
+            startGame();
+        }
+
+    }
+
+
+
+    /*-----------------------------
+    |      JSON MANAGEMENT        |
+     -----------------------------*/
+
+    // MODIFIES: this
+    // EFFECTS: loads parks from file
+    private void loadPark() {
+        try {
+            parks = reader.read();
+            choosePark();
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + saveFile);
+            startGame();
+        }
+    }
+
+    // EFFECTS: saves the current state of parks to file
+    private void savePark() {
+        try {
+            writer.open();
+            writer.write(parks);
+            writer.close();
+            System.out.println("Saved " + getPark().getParkName() + " to " + saveFile);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + saveFile);
+        }
+        menu();
+    }
+
     /*-----------------------------
     |        MENU HANDLING        |
      -----------------------------*/
+
+    //EFFECTS: Starting menu, with options to create a new park or load from save file
+    private void startGame() {
+        String option;
+        do {
+            System.out.println("Choose from the following actions: ");
+            System.out.println("[1] New park");
+            System.out.println("[2] Load park from file");
+            System.out.println("[3] Quit game");
+            option = scanner.next();
+
+        } while (!option.matches("[1-3]"));
+        int choice = Integer.valueOf(option);
+        switch (choice) {
+            case 1:
+                newPark();
+                break;
+            case 2:
+                loadPark();
+                break;
+            case 3:
+                System.out.println("Thanks for playing!");
+                endGame();
+                break;
+        }
+    }
 
     //EFFECTS: A game menu, users can select the action they wish to perform
     //displays main menu, asks for input, processes input
@@ -60,9 +157,11 @@ public class Game {
             System.out.println("[2] Upgrade building");
             System.out.println("[3] View statistics");
             System.out.println("[4] Sell building");
+            System.out.println("[5] Save park to file");
+            System.out.println("[6] Quit game");
             option = scanner.next();
 
-        } while (!option.matches("[1-4]"));
+        } while (!option.matches("[1-6]"));
 
         handleMenu(Integer.valueOf(option));
     }
@@ -82,6 +181,12 @@ public class Game {
                 break;
             case 4:
                 sellBuilding();
+            case 5:
+                savePark();
+                break;
+            case 6:
+                System.out.println("Thanks for playing!");
+                endGame();
                 break;
         }
     }
@@ -261,21 +366,21 @@ public class Game {
             throws NoSuchBuildingException {
         switch (thingToUp) {
             case "ride":
-                if (option > 0 || option < getPark().getRides().size()) {
+                if (option > 0 && option <= getPark().getRides().size()) {
                     checkUpgrade(option, thingToUp);
                 } else {
                     throw new NoSuchBuildingException();
                 }
                 break;
             case "bathroom":
-                if (option > 0 || option < getPark().getBathrooms().size()) {
+                if (option > 0 && option <= getPark().getBathrooms().size()) {
                     checkUpgrade(option, thingToUp);
                 } else {
                     throw new NoSuchBuildingException();
                 }
                 break;
             case "food":
-                if (option > 0 || option < getPark().getFoods().size()) {
+                if (option > 0 && option <= getPark().getFoods().size()) {
                     checkUpgrade(option, thingToUp);
                 } else {
                     throw new NoSuchBuildingException();
