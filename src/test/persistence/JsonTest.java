@@ -14,6 +14,11 @@ public class JsonTest {
         assertEquals(upgradeCost, b.getUpgradeCost());
         assertEquals(level, b.getLevel());
     }
+
+    protected void checkRide
+            (String name, int income, int cost, int upgradeCost, int level, Ride r) {
+        checkBuilding(name, income, cost, upgradeCost, level, r);
+    }
     protected void checkBathroom
             (String name, int income, int cost, int upgradeCost, int level, int washroomCap, Bathroom b) {
         assertEquals(washroomCap, b.getWashroomCap());

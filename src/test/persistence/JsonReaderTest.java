@@ -1,10 +1,7 @@
 package persistence;
 
 
-import model.AmusementPark;
-import model.Bathroom;
-import model.Building;
-import model.FoodStall;
+import model.*;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -54,13 +51,13 @@ class JsonReaderTest extends JsonTest {
                     1,
                     1,
                     (Bathroom) buildings.get(0));
-            checkBuilding(
+            checkRide(
                     "The Wooden Coaster",
                     1,
                     100,
                     150,
                     1,
-                    buildings.get(1));
+                    (Ride) buildings.get(1));
             checkFoodStall(
                     "Food1",
                     1,
