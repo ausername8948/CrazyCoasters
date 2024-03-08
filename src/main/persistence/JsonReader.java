@@ -82,7 +82,7 @@ public class JsonReader {
             addBathroom(park, jsonObject);
         } else if (category.equals("food")) {
             addFood(park, jsonObject);
-        } else if (category.equals("ride")) {
+        } else {
             addRide(park, jsonObject);
         }
     }
