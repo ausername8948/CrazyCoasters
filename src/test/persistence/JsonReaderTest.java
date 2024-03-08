@@ -50,6 +50,7 @@ class JsonReaderTest extends JsonTest {
                     150,
                     1,
                     1,
+                    "bathroom",
                     (Bathroom) buildings.get(0));
             checkRide(
                     "The Wooden Coaster",
@@ -57,6 +58,7 @@ class JsonReaderTest extends JsonTest {
                     100,
                     150,
                     1,
+                    "ride",
                     (Ride) buildings.get(1));
             checkFoodStall(
                     "Food1",
@@ -65,6 +67,7 @@ class JsonReaderTest extends JsonTest {
                     150,
                     1,
                     1,
+                    "food",
                     (FoodStall) buildings.get(2));
 
         } catch (IOException e) {

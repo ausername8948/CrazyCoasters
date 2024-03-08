@@ -16,17 +16,18 @@ public class JsonTest {
     }
 
     protected void checkRide
-            (String name, int income, int cost, int upgradeCost, int level, Ride r) {
+            (String name, int income, int cost, int upgradeCost, int level, String category, Ride r) {
         checkBuilding(name, income, cost, upgradeCost, level, r);
     }
     protected void checkBathroom
-            (String name, int income, int cost, int upgradeCost, int level, int washroomCap, Bathroom b) {
+            (String name, int income, int cost,
+             int upgradeCost, int level, int washroomCap, String category, Bathroom b) {
         assertEquals(washroomCap, b.getWashroomCap());
         checkBuilding(name, income, cost, upgradeCost, level, b);
     }
 
     protected void checkFoodStall
-            (String name, int income, int cost, int upgradeCost, int level, int foodFed, FoodStall f) {
+            (String name, int income, int cost, int upgradeCost, int level, int foodFed, String category, FoodStall f) {
         assertEquals(foodFed, f.getFoodFed());
         checkBuilding(name, income, cost, upgradeCost, level, f);
     }

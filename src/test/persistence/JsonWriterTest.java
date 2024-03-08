@@ -78,6 +78,7 @@ class JsonWriterTest extends JsonTest {
                     150,
                     1,
                     1,
+                    "bathroom",
                     (Bathroom) buildings.get(0));
             checkFoodStall(
                     "Food1",
@@ -86,14 +87,16 @@ class JsonWriterTest extends JsonTest {
                     150,
                     1,
                     1,
+                    "food",
                     (FoodStall) buildings.get(1));
-            checkBuilding(
+            checkRide(
                     "The Wooden Coaster",
                     1,
                     100,
                     150,
                     1,
-                    buildings.get(2));
+                    "ride",
+                    (Ride) (buildings.get(2)));
 
 
 
