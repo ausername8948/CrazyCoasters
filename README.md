@@ -33,3 +33,13 @@ to be able to customize and code an idle game.
 - As a user, I want to be able to save the current state of my game to file.
 - As a user, I want to be able to load the saved state of my game from file.
 
+## Instructions for Grader
+
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by purchasing parks
+in the ParkWindow.
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" by upgrading or
+selling buildings in the ParkWindow screen.
+- You can locate my visual component by looking at the backgrounds for the Main Menu and the ParkWindow screen, or the
+background when loading in parks.
+- You can save the state of my application by saving in the ParkWindow screen.
+- You can reload the state of my application by loading in parks in the Main Menu. 

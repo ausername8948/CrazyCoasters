@@ -114,6 +114,12 @@ public class AmusementPark implements Writable {
         if (customerHungry > 0) {
             customerHungry -= foodFed;
         }
+        if (washroomNeed <= 0) {
+            washroomNeed = 0;
+        }
+        if (customerHungry <= 0) {
+            customerHungry = 0;
+        }
 
     }
 
@@ -123,15 +129,17 @@ public class AmusementPark implements Writable {
     public void handleBathroomAndHunger(boolean paid, int income) {
 
         if (customerHungry >= 100) {
+//            System.out.println("Your customers are starving! Get them more food!");
             customerHungry = 100;
-            money += income / 2;
+            money += (int) Math.ceil((double) income / 2);
             paid = true;
         }
 
         if (washroomNeed >= 100) {
+//            System.out.println("Your customers need to go to the bathroom! Purchase a bathroom!");
             washroomNeed = 100;
             if (!paid) {
-                money += income / 2;
+                money += (int) Math.ceil((double) income / 2);
                 paid = true;
             }
         }
@@ -140,13 +148,6 @@ public class AmusementPark implements Writable {
             // washroomNeed and customerHungry goes up by log_10 (money) - 1 per second
             washroomNeed += (int) (Math.log10(money) - 1);
             customerHungry += (int) (Math.log10(money) - 1);
-        }
-
-        if (washroomNeed <= 0) {
-            washroomNeed = 0;
-        }
-        if (customerHungry <= 0) {
-            customerHungry = 0;
         }
     }
 

@@ -64,6 +64,8 @@ public class Game {
         menu();
     }
 
+    //MODIFIES: this
+    //EFFECTS: allow the user to choose an amusement park from loaded parks
     public void choosePark() {
         System.out.println("The following parks have been loaded: ");
         for (int i = 0; i < parks.size(); i++) {
@@ -430,16 +432,19 @@ public class Game {
         switch (thingToUp) {
             case "ride":
                 Ride rideToUp = getPark().getRides().get(option - 1);
+                getPark().setMoney(getPark().getMoney() - rideToUp.getUpgradeCost());
                 rideToUp.upgrade();
                 System.out.println(rideToUp.getName() + " has been successfully upgraded!");
                 break;
             case "bathroom":
                 Bathroom bathToUp = getPark().getBathrooms().get(option - 1);
+                getPark().setMoney(getPark().getMoney() - bathToUp.getUpgradeCost());
                 bathToUp.upgrade();
                 System.out.println(bathToUp.getName() + " has been successfully upgraded!");
                 break;
             case "food":
                 FoodStall foodToUp = getPark().getFoods().get(option - 1);
+                getPark().setMoney(getPark().getMoney() - foodToUp.getUpgradeCost());
                 foodToUp.upgrade();
                 System.out.println(foodToUp.getName() + " has been successfully upgraded!");
                 break;
@@ -615,20 +620,6 @@ public class Game {
 
             }
         };
-        TimerTask warnUser = new TimerTask() {
-            @Override
-            public void run() {
-                if (getPark().getCustomerHungry() == 100) {
-                    System.out.println("Your customers are starving! Get them more food!");
-                }
-
-                if (getPark().getWashroomNeed() == 100) {
-                    System.out.println("Your customers need to go to the bathroom! Purchase a bathroom!");
-                }
-            }
-        };
-
-        t.scheduleAtFixedRate(warnUser, 0,5000);
         t.scheduleAtFixedRate(task, 0, 1000);
     }
 
