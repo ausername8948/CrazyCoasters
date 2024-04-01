@@ -1,7 +1,7 @@
 [
     {
         "hungry": 0,
-        "money": 1618559,
+        "money": 1672403,
         "buildings": [
             {
                 "income": 0,
@@ -112,6 +112,15 @@
                 "upgradeCost": 1500000
             },
             {
+                "income": 10000,
+                "cost": 1000000,
+                "level": 1,
+                "foodFed": 5,
+                "name": "Food5",
+                "category": "food",
+                "upgradeCost": 1500000
+            },
+            {
                 "income": 1,
                 "cost": 100,
                 "level": 1,
@@ -136,16 +145,16 @@
                 "upgradeCost": 200000
             },
             {
-                "income": 10000,
+                "income": 20000,
                 "cost": 1000000,
                 "level": 1,
                 "name": "Ride5",
                 "category": "ride",
-                "upgradeCost": 1500000
+                "upgradeCost": 2000000
             }
         ],
         "name": "Sam's Amusement Park",
-        "bathroom": -4
+        "bathroom": 0
     },
     {
         "hungry": 8,
@@ -173,8 +182,8 @@
         "bathroom": 5
     },
     {
-        "hungry": 31,
-        "money": 90,
+        "hungry": 0,
+        "money": 233,
         "buildings": [
             {
                 "income": 0,
@@ -183,6 +192,24 @@
                 "level": 1,
                 "name": "Bath1",
                 "category": "bathroom",
+                "upgradeCost": 150
+            },
+            {
+                "income": 1,
+                "cost": 100,
+                "level": 1,
+                "foodFed": 1,
+                "name": "Food1",
+                "category": "food",
+                "upgradeCost": 150
+            },
+            {
+                "income": 1,
+                "cost": 100,
+                "level": 1,
+                "foodFed": 1,
+                "name": "Food1",
+                "category": "food",
                 "upgradeCost": 150
             },
             {

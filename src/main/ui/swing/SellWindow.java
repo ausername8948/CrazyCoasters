@@ -5,8 +5,11 @@ import model.Building;
 import model.FoodStall;
 import model.Ride;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 
 //represents a window where the user can sell their buildings
@@ -21,21 +24,44 @@ public class SellWindow extends Window {
     public SellWindow(SwingGame game) {
         super(game);
         setTitle("Choose building to sell: ");
-        setLayout(new BorderLayout());
         setup();
     }
 
     //EFFECTS: calls all methods required to decorate and configure the window
     @Override
     protected void setup() {
+        setMainBackground();
+        setLayout(new BorderLayout());
+        mainPanel = new JPanel();
         setupPanels();
+        mainPanel.setBackground(new Color(128,173,173,100));
+        mainPanel.setOpaque(true);
+        add(mainPanel, BorderLayout.CENTER);
         addBackButton();
+    }
+
+    //EFFECTS: paints the background with this cool image I found
+    public void setMainBackground() {
+        Image image;
+        try {
+            image = ImageIO.read(new File("data/pictures/parkBackground.jpg"))
+                    .getScaledInstance(1024,600,Image.SCALE_DEFAULT);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        setContentPane(new JPanel() {
+            @Override
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(image, 0, 0, null);
+            }
+        });
     }
 
     //MODIFIES: this
     //EFFECTS: sets up panels where buildings are shown, sets up labels
     public void setupPanels() {
-        mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(1,3));
         rides = new JPanel();
         bathrooms = new JPanel();
@@ -58,11 +84,13 @@ public class SellWindow extends Window {
         mainPanel.add(rides);
         mainPanel.add(bathrooms);
         mainPanel.add(foods);
-        add(mainPanel);
     }
 
     //EFFECTS: loads buildings from current park as buttons
     public void loadBuildings() {
+        rides.setBackground(new Color(128,173,173,100));
+        bathrooms.setBackground(new Color(128,173,173,100));
+        foods.setBackground(new Color(128,173,173,100));
         for (Ride r : park.getRides()) {
             JButton button = new JButton();
             button = setupButton(r, button);

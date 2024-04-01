@@ -5,8 +5,11 @@ import model.Building;
 import model.FoodStall;
 import model.Ride;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 //represents a window where the user can upgrade their buildings
 public class UpgradeWindow extends Window {
@@ -21,21 +24,44 @@ public class UpgradeWindow extends Window {
     public UpgradeWindow(SwingGame game) {
         super(game);
         setTitle("Choose building to upgrade: ");
-        setLayout(new BorderLayout());
         setup();
     }
 
     //EFFECTS: calls all setup methods for the window
     @Override
     protected void setup() {
+        setMainBackground();
+        setLayout(new BorderLayout());
+        mainPanel = new JPanel();
         setupPanels();
+        mainPanel.setBackground(new Color(128,173,173,100));
+        mainPanel.setOpaque(true);
+        add(mainPanel, BorderLayout.CENTER);
         addBackButton();
+    }
+
+    //EFFECTS: paints the background with this cool image I found
+    public void setMainBackground() {
+        Image image;
+        try {
+            image = ImageIO.read(new File("data/pictures/parkBackground.jpg"))
+                    .getScaledInstance(1024,600,Image.SCALE_DEFAULT);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        setContentPane(new JPanel() {
+            @Override
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(image, 0, 0, null);
+            }
+        });
     }
 
     //MODIFIES: this
     //EFFECTS: setup panels where building are laid out
     public void setupPanels() {
-        mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(1,3));
         rides = new JPanel();
         bathrooms = new JPanel();
@@ -58,12 +84,14 @@ public class UpgradeWindow extends Window {
         mainPanel.add(rides);
         mainPanel.add(bathrooms);
         mainPanel.add(foods);
-        add(mainPanel);
     }
 
     //MODIFIES: this
     //EFFECTS: loads all buildings for current park to upgrade
     public void loadBuildings() {
+        rides.setBackground(new Color(128,173,173,100));
+        bathrooms.setBackground(new Color(128,173,173,100));
+        foods.setBackground(new Color(128,173,173,100));
         for (Ride r : park.getRides()) {
             JButton button = new JButton();
             button = setupButton(r, button);
