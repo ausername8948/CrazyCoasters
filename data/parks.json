@@ -157,31 +157,6 @@
         "bathroom": 0
     },
     {
-        "hungry": 8,
-        "money": 11,
-        "buildings": [
-            {
-                "income": 0,
-                "washroomCap": 1,
-                "cost": 100,
-                "level": 1,
-                "name": "Bath1",
-                "category": "bathroom",
-                "upgradeCost": 150
-            },
-            {
-                "income": 1,
-                "cost": 100,
-                "level": 1,
-                "name": "The Wooden Coaster",
-                "category": "ride",
-                "upgradeCost": 150
-            }
-        ],
-        "name": "bad amusement park",
-        "bathroom": 5
-    },
-    {
         "hungry": 0,
         "money": 233,
         "buildings": [
@@ -223,19 +198,5 @@
         ],
         "name": "你妈的",
         "bathroom": 0
-    },
-    {
-        "hungry": 3,
-        "money": 103,
-        "buildings": [{
-            "income": 1,
-            "cost": 100,
-            "level": 1,
-            "name": "The Wooden Coaster",
-            "category": "ride",
-            "upgradeCost": 150
-        }],
-        "name": "my funny park",
-        "bathroom": 3
     }
 ]

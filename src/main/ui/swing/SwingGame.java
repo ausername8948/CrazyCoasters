@@ -26,12 +26,17 @@ public class SwingGame {
         reader = new JsonReader(saveFile);
         parks = new ArrayList<>();
         shop = new Shop();
+
+        try {
+            parks = reader.read();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //MODIFIES: this
     //EFFECTS: creates a new park, sets current park to new park
     public void newPark(AmusementPark park) throws IOException {
-        parks = reader.read();
         parks.add(park);
         currentPark = parks.size() - 1;
     }
@@ -40,7 +45,6 @@ public class SwingGame {
     //MODIFIES: this
     //EFFECTS: load parks from save file
     public List<AmusementPark> loadParks() throws IOException {
-        parks = reader.read();
         return parks;
     }
 
@@ -88,6 +92,13 @@ public class SwingGame {
         } else if (b instanceof FoodStall) {
             park.sellFood((FoodStall) b);
         }
+    }
+
+    public void quit() {
+        for (Event next : EventLog.getInstance()) {
+            System.out.println(next.toString());
+        }
+        System.exit(0);
     }
 
     //MODIFIES: this

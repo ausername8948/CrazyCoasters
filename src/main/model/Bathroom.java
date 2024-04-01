@@ -21,6 +21,8 @@ public class Bathroom extends Building {
     public void upgrade() {
         super.upgrade();
         washroomCap++;
+        EventLog.getInstance().logEvent(new Event(
+                "Bathroom \"" + getName() + "\" has been upgraded to level " + getLevel() + "!"));
     }
 
     public int getWashroomCap() {

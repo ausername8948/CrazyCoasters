@@ -122,7 +122,7 @@ public class MainMenu extends JFrame {
         });
 
         quit.addActionListener(e -> {
-            System.exit(0);
+            game.quit();
         });
 
         loadPark.addActionListener(e -> {

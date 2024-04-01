@@ -32,6 +32,7 @@ public abstract class Building implements Writable {
         this.level++;
         this.income *= level;
         this.upgradeCost += (this.cost / 2);
+
     }
 
     //EFFECTS: A string of the details of the building, including its name, level, cost, income, and upgrade cost

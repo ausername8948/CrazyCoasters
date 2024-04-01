@@ -626,7 +626,11 @@ public class Game {
 
     // ends and closes the game
     private void endGame() {
+        for (Event next : EventLog.getInstance()) {
+            System.out.println(next.toString());
+        }
         System.exit(0);
+
     }
 
     public AmusementPark getPark() {

@@ -12,6 +12,13 @@ public class Ride extends Building {
     }
 
     @Override
+    public void upgrade() {
+        super.upgrade();
+        EventLog.getInstance().logEvent(new Event(
+                "Ride \"" + getName() + "\" has been upgraded to level " + getLevel() + "!"));
+    }
+
+    @Override
     public JSONObject toJson() {
         JSONObject json = super.toJson();
         json.put("category", "ride");

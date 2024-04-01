@@ -13,6 +13,14 @@ public class FoodStall extends Building {
         foodFed = (int) (Math.log10(cost) - 1);
     }
 
+    @Override
+    public void upgrade() {
+        super.upgrade();
+        foodFed++;
+        EventLog.getInstance().logEvent(new Event(
+                "FoodStall \"" + getName() + "\" has been upgraded to level " + getLevel() + "!"));
+    }
+
     public int getFoodFed() {
         return foodFed;
     }

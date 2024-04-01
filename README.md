@@ -24,14 +24,16 @@ I also wanted to try building a game from scratch on my own. I think it will be 
 to be able to customize and code an idle game.
 
 ## User Stories!
-- As a user, I want to be able to **add a building** to my amusement park.
-- As a user, I want to increase the money I make by **upgrading buildings**.
-- As a user, I want to view my progress by having a "statistics" screen,
+- [x] As a user, I want to be able to create multiple amusement parks.
+- [x] As a user, I want to be able to **add a building** to my amusement park.
+- [x] As a user, I want to increase the money I make by **upgrading buildings**.
+- [x] As a user, I want to view my progress by having a "statistics" screen,
 **viewing my money and buildings**.
-- As a user, I want to be able to **sell buildings**. 
-- As a user, I want to be able to **acquire achievements** for progress made in the game.
-- As a user, I want to be able to save the current state of my game to file.
-- As a user, I want to be able to load the saved state of my game from file.
+- [x] As a user, I want to be able to **sell buildings**. 
+- [ ] As a user, I want to be able to **acquire achievements** for progress made in the game.
+- [x] As a user, I want to be able to save the current state of my game to file.
+- [x] As a user, I want to be able to load the saved state of my game from file.
+- [x] As a user, I want to be able to save and choose to load certain amusement parks.
 
 ## Instructions for Grader
 
@@ -43,3 +45,19 @@ selling buildings in the ParkWindow screen.
 background when loading in parks.
 - You can save the state of my application by saving in the ParkWindow screen.
 - You can reload the state of my application by loading in parks in the Main Menu. 
+
+## Phase 4: Event Logging and Design Analysis
+
+### Task 2: Sample Event Log
+
+```
+Amusement park "my cool park" has been created!
+Mon Apr 01 01:21:14 PDT 2024
+Ride "The Wooden Coaster" has been added to my cool park!
+Mon Apr 01 01:21:19 PDT 2024
+FoodStall "Food1" has been added to my cool park!
+Mon Apr 01 01:21:51 PDT 2024
+FoodStall "Food1" has been sold from my cool park!
+Mon Apr 01 01:21:54 PDT 2024
+Ride "The Wooden Coaster" has been upgraded to level 2!
+```

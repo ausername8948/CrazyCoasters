@@ -314,7 +314,7 @@ public class ParkWindow extends Window {
         JButton no = new JButton("No");
         yes.addActionListener(e -> {
             System.out.println("Thanks for playing!");
-            System.exit(0);
+            game.quit();
         });
         no.addActionListener(e -> {
             dialog.dispose();

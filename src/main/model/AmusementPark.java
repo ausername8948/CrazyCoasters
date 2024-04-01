@@ -37,7 +37,7 @@ public class AmusementPark implements Writable {
         rides = new ArrayList<Ride>();
         bathrooms = new ArrayList<Bathroom>();
         foods = new ArrayList<FoodStall>();
-
+        EventLog.getInstance().logEvent(new Event("Amusement park \"" + name + "\" has been created!"));
 
     }
 
@@ -49,6 +49,9 @@ public class AmusementPark implements Writable {
         money -= ride.getCost();
         rides.add(ride);
         buildings.add(ride);
+        EventLog.getInstance().logEvent(new Event(
+                "Ride \"" + ride.getName() + "\" has been added to " + getParkName() + "!"));
+
     }
 
     //MODIFIES: this
@@ -59,6 +62,8 @@ public class AmusementPark implements Writable {
         money -= bathroom.getCost();
         bathrooms.add(bathroom);
         buildings.add(bathroom);
+        EventLog.getInstance().logEvent(new Event(
+                "Bathroom \"" + bathroom.getName() + "\" has been added to " + getParkName() + "!"));
     }
 
     //MODIFIES: this
@@ -69,6 +74,8 @@ public class AmusementPark implements Writable {
         money -= food.getCost();
         foods.add(food);
         buildings.add(food);
+        EventLog.getInstance().logEvent(new Event(
+                "FoodStall \"" + food.getName() + "\" has been added to " + getParkName() + "!"));
     }
 
     //REQUIRES: Ride is in rides
@@ -78,6 +85,8 @@ public class AmusementPark implements Writable {
         money += ride.getCost();
         rides.remove(ride);
         buildings.remove(ride);
+        EventLog.getInstance().logEvent(new Event(
+                "Ride \"" + ride.getName() + "\" has been sold from " + getParkName() + "!"));
     }
 
     //REQUIRES: Bathroom is in bathrooms
@@ -87,6 +96,8 @@ public class AmusementPark implements Writable {
         money += bathroom.getCost();
         bathrooms.remove(bathroom);
         buildings.remove(bathroom);
+        EventLog.getInstance().logEvent(new Event(
+                "Bathroom \"" + bathroom.getName() + "\" has been sold from " + getParkName() + "!"));
     }
 
     //REQUIRES: FoodStall is in foods
@@ -96,6 +107,8 @@ public class AmusementPark implements Writable {
         money += food.getCost();
         foods.remove(food);
         buildings.remove(food);
+        EventLog.getInstance().logEvent(new Event(
+                "FoodStall \"" + food.getName() + "\" has been sold from " + getParkName() + "!"));
     }
 
     //MODIFIES: this

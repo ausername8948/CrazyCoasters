@@ -1,7 +1,6 @@
 package ui;
 
-import ui.swing.MainMenu;
-import ui.swing.SwingGame;
+import ui.swing.*;
 
 // main class
 public class CrazyCoasters {
