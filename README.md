@@ -61,3 +61,12 @@ FoodStall "Food1" has been sold from my cool park!
 Mon Apr 01 01:21:54 PDT 2024
 Ride "The Wooden Coaster" has been upgraded to level 2!
 ```
+
+### Task 3: Design Analysis and Reflection
+
+- If I had more time to work on this project, I would refactor the original design in phase 1 to make better use of the
+abstract building class. Creating the web of user menus for purchasing, upgrading, and selling buildings led to several
+hundred lines of helper methods, much of which was used for checking the type of building to undergo the action.
+- I would also create separate Exception classes to handle faulty user inputs for better code readability.
+- I would also adjust the abstract Window class for all windows in the swing package to be able to extend it, further
+adding methods such as setting up buttons, etc.

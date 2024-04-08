@@ -25,7 +25,7 @@ public class AmusementPark implements Writable {
 
 
 
-    //EFFECTS: creates new amusement park with no buildings, "String name" name, set money to 100,
+    //EFFECTS: creates new amusement park with no buildings, "String name" name, set money to 200,
     //set customerHungry, washroomNeed to 0
     public AmusementPark(String name) {
         parkName = name;
@@ -33,10 +33,10 @@ public class AmusementPark implements Writable {
         customerHungry = 0;
         washroomNeed = 0;
 
-        buildings = new ArrayList<Building>();
-        rides = new ArrayList<Ride>();
-        bathrooms = new ArrayList<Bathroom>();
-        foods = new ArrayList<FoodStall>();
+        buildings = new ArrayList<>();
+        rides = new ArrayList<>();
+        bathrooms = new ArrayList<>();
+        foods = new ArrayList<>();
         EventLog.getInstance().logEvent(new Event("Amusement park \"" + name + "\" has been created!"));
 
     }
