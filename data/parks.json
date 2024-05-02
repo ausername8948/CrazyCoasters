@@ -232,5 +232,39 @@
         ],
         "name": "abdullah's epic gamer park",
         "bathroom": 0
+    },
+    {
+        "hungry": 97,
+        "money": 2755,
+        "buildings": [
+            {
+                "income": 0,
+                "washroomCap": 2,
+                "cost": 1000,
+                "level": 1,
+                "name": "Bath2",
+                "category": "bathroom",
+                "upgradeCost": 1500
+            },
+            {
+                "income": 100,
+                "cost": 1000,
+                "level": 1,
+                "foodFed": 2,
+                "name": "Food2",
+                "category": "food",
+                "upgradeCost": 1500
+            },
+            {
+                "income": 10,
+                "cost": 100,
+                "level": 1,
+                "name": "Ride1",
+                "category": "ride",
+                "upgradeCost": 150
+            }
+        ],
+        "name": "my cool park",
+        "bathroom": 75
     }
 ]

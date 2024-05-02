@@ -21,7 +21,7 @@ public abstract class Building implements Writable {
         this.level = 0;
         this.name = name;
         this.cost = cost;
-        this.income = cost / 100;
+        this.income = cost / 10;
         this.upgradeCost = cost + (this.cost / 2);
     }
 

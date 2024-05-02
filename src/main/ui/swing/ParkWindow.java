@@ -139,11 +139,19 @@ public class ParkWindow extends Window {
             JLabel l = new JLabel(b.toString());
            // l.setOpaque(true);
             bathrooms.add(l);
+            if (park.getWashroomNeed() == 100) {
+                JLabel warning = new JLabel("You need bathrooms!");
+                bathrooms.add(warning);
+            }
         }
         for (FoodStall f : park.getFoods()) {
             JLabel l = new JLabel(f.toString());
            // l.setOpaque(true);
             foods.add(l);
+            if (park.getCustomerHungry() == 100) {
+                JLabel warning = new JLabel("You need food stalls!");
+                foods.add(warning);
+            }
         }
 
 
