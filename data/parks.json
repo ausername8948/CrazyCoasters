@@ -266,5 +266,30 @@
         ],
         "name": "my cool park",
         "bathroom": 75
+    },
+    {
+        "hungry": 50,
+        "money": 1370,
+        "buildings": [
+            {
+                "income": 10,
+                "cost": 100,
+                "level": 1,
+                "foodFed": 1,
+                "name": "Food1",
+                "category": "food",
+                "upgradeCost": 150
+            },
+            {
+                "income": 10,
+                "cost": 100,
+                "level": 1,
+                "name": "The Wooden Coaster",
+                "category": "ride",
+                "upgradeCost": 150
+            }
+        ],
+        "name": "羊秀莹的游乐园",
+        "bathroom": 100
     }
 ]

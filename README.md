@@ -2,6 +2,10 @@
 
 ### *Create the amusement park of your dreams!*
 
+![Main Menu](titlescreen.png)
+
+![Main Screen](maingameplay.png)
+
 ## Proposal!
 
 ### What will this application do?
